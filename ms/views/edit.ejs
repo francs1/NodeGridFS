@@ -1,0 +1,44 @@
+<!-- Embedded JavaScript -->
+<%- include header %>
+<script type="text/javascript">
+    $(function(){
+        var fileid = "<%=book.bookid%>";
+        $("#books").val(fileid);
+    });
+    
+</script>
+<form method="post">
+    书名:<br />
+    <input type="text" id="bookname" name="bookname" value="<%=book.bookname%>" /><br />
+    标签：<br />
+    <input type="text" id="tag1" name="tag1" value="<%=book.tags[0]%>" disabled="disabled" />
+    <input type="text" id="tag2" name="tag2" value="<%=book.tags[1]%>" disabled="disabled" />
+    <input type="text" id="tag3" name="tag3" value="<%=book.tags[2]%>" disabled="disabled" /><br />
+    简介：<br />
+    <textarea name="introduction" rows="20" cols="100">
+        <%= book.introduction %>
+    </textarea>
+    <br />
+
+    选择书籍：<br />
+    <select id="books" disabled="disabled">
+        <%
+            
+            uploads.forEach(function(upload,index){
+        %>
+        <option value="<%= upload.fileid %>"><%= upload.filename %></option>
+        <%
+            
+            })
+        %>
+    </select>
+    <!--书籍标识-->
+    <input type="hidden" name="bookid" id="bookid" value="<%=book.bookid%>" />
+    <br />
+    需要积分:<br />
+    <input type="text" id="costpoint" name="costpoint" value="<%=book.costpoint%>" />
+    <br />
+    <input type="submit" value="保存" />
+</form>
+
+<%- include footer %>

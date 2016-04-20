@@ -1,0 +1,45 @@
+<!-- Embedded JavaScript -->
+<%- include header %>
+
+
+<p>
+    <h2>
+        <%=book.bookname%>
+    </h2>
+</p>
+<p>
+    <% if(user && (user.name == book.uploader)) {%>
+    <span>
+        <a class="edit" href="/edit/<%= book.bookid%>">编辑</a>
+    </span>
+    
+    <% } %>
+</p>
+<p class="info">
+        上传人：<%=book.uploader%><br />
+        日期：<%= book.uploadtime%><br />
+        格式：<%= book.extension%><br/>
+        大小：<%= filesize%>MB<br/>
+        需要积分：<%=book.costpoint%><br />
+        阅读次数：<%=book.pv%><br />
+        下载次数：<%=book.downloadtimes%><br />
+        评论次数：<%=book.commenttimes%><br />
+    <%
+            var canComment = false;
+            book.comments.forEach(function(comment,index){
+            if(comment.commentator==user.name){
+                canComment=true;
+                return;
+            }
+        });
+    %>
+    <a id="download" href="/download/<%= book.bookid %>" target="_blank" style="color:red;">点击下载</a>
+
+</p>
+<p>
+    简介：<%= book.introduction%>
+</p>
+
+<%- include comment %>
+
+<%- include footer %>

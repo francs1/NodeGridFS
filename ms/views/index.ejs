@@ -1,0 +1,40 @@
+<%- include header %>
+
+<%
+    books.forEach(function(book,index){
+%>
+<p>
+    <h2>
+        <a href="/article/<%= book.bookid %>"> <%= book.bookname %> </a>
+    </h2>
+    <a href=""><img src="<%= book.head %>" alt="head" class="r_head" /></a>
+</p>
+<p class="info">
+        上传人：<%=book.uploader%><br />
+        日期：<%= book.uploadtime%><br />
+        需要积分：<%=book.costpoint%><br />
+        下载次数：<%=book.downloadtimes%><br />
+        评论次数：<%=book.commenttimes%><br />
+
+        标签：<%
+    book.tags.forEach(function(tag,index){
+            if(tag){
+    
+    %>
+    <a class="tag" href="/tags/<%=tag%>"><%=tag%></a>
+
+    <%
+         }
+        })
+    %>
+</p>
+<p>
+    <%- book.introduction%>
+</p>
+<%
+    })
+%>
+
+<%- include paging %>
+
+<%- include footer %>

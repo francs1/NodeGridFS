@@ -1,0 +1,6 @@
+Fri, 15 Apr 2016 01:30:32 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:43:9
+Application has thrown an uncaught exception and is terminated:
+Error: connect ECONNREFUSED 127.0.0.1:27017
+    at Object.exports._errnoException (util.js:890:11)
+    at exports._exceptionWithHostPort (util.js:913:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1059:14)

@@ -1,0 +1,13 @@
+<!-- Embedded JavaScript -->
+<%- include header%>
+
+<%
+    books.forEach(function(tag,index){
+%>
+<a class="tag" href="/tags/<%=tag%>"><%=tag%></a>
+
+<%
+    })
+%>
+
+<%- include footer%>

@@ -1,0 +1,3 @@
+Sun, 17 Apr 2016 09:25:15 GMT morgan deprecated morgan(options): use morgan("default", options) instead at app.js:33:9
+Sun, 17 Apr 2016 09:25:15 GMT morgan deprecated default format: use combined format at app.js:33:9
+Sun, 17 Apr 2016 09:25:15 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:53:9

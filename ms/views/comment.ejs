@@ -1,0 +1,33 @@
+<!-- Embedded JavaScript -->
+<br />
+
+<%
+    book.comments.forEach(function(comment,index){    
+%>
+<p>
+    <%= comment.commentator %>
+    <span class="info">回复于:<%= comment.publishedtime%></span>
+</p>
+<p>
+    <%= comment.content %>
+</p>
+
+<%
+    })
+%>
+
+<form method="post" action="/article">
+    <%
+        //if(user && user.name != book.uploader){
+        if(user){
+    %>
+    姓名：<input type="text" name="commentator" value="<%=user.name%>" disabled="disabled" /><br />
+    <input type="hidden" name="bookid" value="<%=book.bookid%>" />
+    <input type="hidden" name="score" value="0" />
+    <textarea name="content" rows="5" cols="80"></textarea><br />    
+    <input type="submit" value="评价" />
+
+    <%
+        }
+    %>
+</form>

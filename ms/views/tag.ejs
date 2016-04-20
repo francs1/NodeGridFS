@@ -1,0 +1,26 @@
+<!-- Embedded JavaScript -->
+
+<%- include header %>
+
+<ul class="archive">
+    <%
+        books.forEach(function(book,index){
+    %>
+    <li>
+        <time>
+            <%= book.uploadtime%>
+        </time>
+        <br />
+        <a href="/article/<%=book.bookid%>"><%=book.bookname%></a>
+        <span>上传人：<%=book.uploader%></span>
+        <span>需要分数：<%=book.costpoint%></span>
+        <span>下载次数：<%=book.downloadtimes%></span>
+    </li>
+
+    <%
+        })
+    %>
+
+</ul>
+
+<%- include footer %>

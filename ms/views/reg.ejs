@@ -1,0 +1,41 @@
+<!-- Embedded JavaScript -->
+<%- include header %>
+<script type="text/javascript">
+    $(function () {
+        $("#reg").click(function () {
+            var name = $.trim($("#name").val());
+            var password = $.trim($("#password").val());
+            var repassword = $.trim($("#repassword").val());
+            var email = $.trim($("#email").val());
+            if (name.length == 0) {
+                alert("用户名不能为空");
+                return falses;
+            }
+            else if (password != repassword) {
+                alert("两次密码不一致");
+                return false;
+            }
+            else if (password.length < 6) {
+                alert("密码长度最少6位");
+                return false;
+            }
+            else if(email.length==0){
+                alert("邮箱不能为空");
+                return false;
+            }
+            else {
+                $("#form1").submit();
+            }
+    
+        });
+    });
+</script>
+<form method="post" id="form1">
+    用户名：<input type="text" id="name" name="name" /><br />
+    密码：<input type="password" id="password" name="password" /><br />
+    确认密码：<input type="password" id="repassword" name="repassword" /><br />
+    邮箱：<input type="email" id="email" name="email" /><br />
+    <input id="reg" type="submit" value="注册" />
+</form>
+
+<%- include footer %>

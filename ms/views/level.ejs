@@ -1,0 +1,32 @@
+<!-- Embedded JavaScript -->
+<%- include header %>
+<h3>
+    您当前的修为:<%=user.bookcount%><br/><br/>
+    您当前的积分:<%=point%>
+</h3>
+<%
+    levels.forEach(function(level,index){
+%>
+<p>
+    <%
+        if (parseInt(level.levelnumber,10) == parseInt(user.userlevel,10))
+           {
+    %>
+    <span style="color: red;">
+       修为达到：<%=level.levelnumber %> -- 称号：<%= level.levelname %>
+    </span>
+    <%
+        }
+            else {
+    %>
+    <span>
+     修为达到：<%=level.levelnumber %> -- 称号：<%= level.levelname %>
+    </span>
+    <%}%>
+</p>
+
+<%
+    })
+%>
+
+<%- include footer %>
