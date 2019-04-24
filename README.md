@@ -1,9 +1,9 @@
 Bookstack
 	
 
-A Book Share Website,you can upload books and download books.
+A Books Sharing Website,you can upload books and download books.
 
-It use NodeJS Express Mongodb GridFS.
+It uses NodeJS Express Mongodb GridFS.
 Your computer needs to install nodejs and mongodb.
 
 1st start on mongodb by mongod command.<br/>
